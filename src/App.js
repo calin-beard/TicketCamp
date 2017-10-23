@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import Sidebar from './components/Sidebar';
+import RecentProjects from './components/RecentProjects';
+import RecentIssues from './components/RecentIssues';
 import './App.css';
 
 class App extends Component {
@@ -11,10 +13,10 @@ class App extends Component {
             <Sidebar xs="3"/>
           <Col sm="9">
             <header className="app-header">
-              <h1 className="app-title text-left">TMT</h1>
+              <h1 className="title text-left">Dashboard</h1>
             </header>
-            <p className="app-intro">
-            </p>
+            <RecentProjects />
+            <RecentIssues />
           </Col>
         </Row>
       </div>

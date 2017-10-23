@@ -1,0 +1,99 @@
+{
+  "project_title": "Project 1",
+  "issue_lists": [
+    {
+      "title": "Recent Issues",
+      "contents": [
+        {
+          "title": "Recent issue 1"
+        },
+        {
+          "title": "Recent issue 2"
+        },
+        {
+          "title": "Recent issue 3"
+        },
+        {
+          "title": "Recent issue 4"
+        },
+        {
+          "title": "Recent issue 5"
+        },
+        {
+          "title": "Recent issue 6"
+        },
+        {
+          "title": "Recent issue 7"
+        }
+      ]
+    },
+    {
+      "title": "My open issues",
+      "contents": [
+        {
+          "title": "My open issue 1"
+        },
+        {
+
+          "title": "My open issue 2"
+        },
+        {
+
+          "title": "My open issue 3"
+        },
+        {
+          "title": "My open issue issue 4"
+        },
+        {
+          "title": "My open issue issue 5"
+        }
+      ]
+    },
+    {
+      "title": "Recently closed",
+      "contents": [
+        {
+          "title": "Recently closed 1"
+        },
+        {
+          "title": "Recently closed 2"
+        },
+        {
+          "title": "Recently closed 3"
+        },
+        {
+          "title": "Recently closed 4"
+        },
+        {
+          "title": "Recently closed 5"
+        },
+        {
+          "title": "Recently closed 6"
+        },
+        {
+          "title": "Recently closed 7"
+        }
+      ]
+    },
+    {
+      "title": "Blocked issues",
+      "contents": [
+        {
+          "title": "Blocked issue 1"
+        },
+        {
+          "title": "Blocked issue 2"
+        },
+        {
+          "title": "Blocked issue 3"
+        },
+        {
+          "title": "Blocked issue 4"
+        },
+        {
+          "title": "Blocked issue 5"
+        }
+      ]
+    }
+  ]
+}

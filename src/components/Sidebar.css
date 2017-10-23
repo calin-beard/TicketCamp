@@ -2,22 +2,29 @@
   background-color: #1976d2;
 }
 
-.title {
+.sidebar-container .title {
   margin: 50px 30px;
   color: #ffffff;
 }
 
-.btn-group-vertical {
+.sidebar-container .btn-group-vertical {
   width: 100%;
   margin: 0 auto;
 }
 
-.btn.btn-secondary {
+.sidebar-container .btn.btn-primary {
   background-color: #1976d2;
-  border-color: #1976d2;
+  border: none;
 }
 
-.btn.btn-secondary:hover {
+.sidebar-container .btn.btn-primary:hover {
   background-color: #63a4ff;
-  border-color: #63a4ff;
+  border: none;
+}
+
+.sidebar-container .btn.btn-primary:focus{
+  background-color: #63a4ff;
+  border: none;
+  outline: 0;
+  box-shadow: none;
 }
