@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.btn {
+  transition: all 1s ease-out !important;
+}
+
 .app-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

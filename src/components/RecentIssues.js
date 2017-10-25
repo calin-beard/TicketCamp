@@ -24,11 +24,11 @@ class RecentIssues extends Component {
       );
     });
     return (
-      <div className="recent-issues-container">
+      <Col className="recent-issues-container">
         <Row>
           { IssueListCols }
         </Row>
-      </div>
+      </Col>
     );
   }
 }
