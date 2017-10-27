@@ -12,7 +12,7 @@ class RecentIssues extends Component {
         recent_issues: Project1Issues
       };
 
-      console.log(Project1Issues);
+      //console.log(Project1Issues);
   }
 
   render() {

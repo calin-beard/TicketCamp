@@ -7,7 +7,7 @@
 }
 
 .btn {
-  transition: all 1s ease-out !important;
+    transition: unset;
 }
 
 .app-logo {
