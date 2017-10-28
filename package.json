@@ -6,8 +6,10 @@
     "bootstrap": "^4.0.0-beta",
     "eslint": "^4.9.0",
     "eslint-plugin-react-app": "^1.0.2",
+    "express": "^4.16.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
     "react-scripts": "1.0.14",
     "reactstrap": "^5.0.0-alpha.3"
   },
