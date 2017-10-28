@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import { Col } from 'reactstrap';
-import { Button, ButtonGroup } from 'reactstrap';
+import {Container, Col} from 'reactstrap';
+import {Button} from 'reactstrap';
 import './Sidebar.css';
 
 class Sidebar extends Component {
-  render() {
-    return (
-      <Col className="sidebar-container col-sm-3">
-        <h1 className="title">Ticket Camp</h1>
-        <ButtonGroup vertical>
-          <Button color="primary" className="rounded">Dashboard</Button>
-          <Button color="primary" className="rounded">Projects</Button>
-          <Button color="primary" className="rounded">Issues</Button>
-        </ButtonGroup>
-        <ButtonGroup vertical className="align-bottom">
-          <Button color="primary" className="rounded">Settings</Button>
-        </ButtonGroup>
-      </Col>
-    );
-  }
+    handleClick(e) {
+        //console.log(e);
+        const page = e.target.innerText;
+        this.props.onClick(page);
+    }
+
+    render() {
+        return (
+            <Col sm="3" className="sidebar-container">
+                <h1 className="title">Ticket Camp</h1>
+                <Container fluid>
+                    <Button block color="primary" className="rounded"
+                            onClick={this.handleClick.bind(this)}>Dashboard</Button>
+                    <Button block color="primary" className="rounded"
+                            onClick={this.handleClick.bind(this)}>Projects</Button>
+                    <Button block color="primary" className="rounded"
+                            onClick={this.handleClick.bind(this)}>Issues</Button>
+                </Container>
+                <Container fluid className="align-bottom">
+                    <Button block color="primary" className="rounded">Settings</Button>
+                </Container>
+            </Col>
+        );
+    }
 }
 
 export default Sidebar;
