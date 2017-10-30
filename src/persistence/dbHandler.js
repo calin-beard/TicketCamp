@@ -39,4 +39,4 @@ export function remove(item, table) {
     // todo
 }
 
-export default database;
+export { add, get, update, remove };
