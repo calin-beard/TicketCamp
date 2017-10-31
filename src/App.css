@@ -2,10 +2,6 @@
   /*text-align: center;*/
 }
 
-.col.col-sm-9 {
-  padding: 0;
-}
-
 .btn {
     transition: unset;
 }
@@ -13,18 +9,6 @@
 .app-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
-}
-
-.app-header {
-  background-color: #1976d2;
-  height: 70px;
-  padding: 20px;
-  color: white;
-}
-
-.app-header .title {
-  padding-left: 20px;
-  font-size: 1.5em;
 }
 
 .app-intro {

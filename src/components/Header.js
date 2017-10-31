@@ -3,10 +3,10 @@ import './Header.css';
 
 class Header extends Component {
     render() {
-        const page = this.props.page;
+        // const title = this.props.title;
         return (
             <header className="app-header">
-                <h1 className="title text-left">{page}</h1>
+                <h1 className="title text-left">Title</h1>
             </header>
         )
     }
