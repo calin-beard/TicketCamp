@@ -1,5 +1,34 @@
 'use strict';
 
+
+let mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/ticketcamp");
+
+let ticketSchema = new mongoose.Schema({
+    name: String,
+    owner: String,
+    issueNumber: Number
+});
+
+let Database = mongoose.model("Database", ticketSchema);
+
+// Database.create();
+
+const project = new Database({
+    name: "myProject",
+    owner: "me",
+    issueNumber: 20
+});
+
+project.save(function(err, project) {
+    if(err) {
+        console.log("Failed to save project " + project + "... error: " + err);
+    }
+    else {
+        console.log("Successfully saved project " + project);
+    }
+});
+
 /**
  * Database API containing CRUD operations and more
  * This should be used for interacting with the database
