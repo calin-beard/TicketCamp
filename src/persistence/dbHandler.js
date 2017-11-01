@@ -40,7 +40,7 @@ const databaseName = ""; //todo set database name
  * @param item The object to be added
  * @param table The table where to add to
  */
-export function add(item, table) {
+function add(item, table) {
     // todo
 }
 
@@ -48,7 +48,7 @@ export function add(item, table) {
  * @param item The object to be retrieved
  * @param table The table where to retrieve from
  */
-export function get(item, table) {
+function get(item, table) {
     // todo
 }
 
@@ -56,7 +56,7 @@ export function get(item, table) {
  * @param item The object to be updated
  * @param table The table where to update
  */
-export function update(item, table) {
+function update(item, table) {
     // todo
 }
 
@@ -64,7 +64,7 @@ export function update(item, table) {
  * @param item The object to be removed
  * @param table The table where to remove from
  */
-export function remove(item, table) {
+function remove(item, table) {
     // todo
 }
 
