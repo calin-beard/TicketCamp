@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import {Col} from 'reactstrap';
-import Header from './Header';
-import './Projects.css';
+import React, {Component} from "react";
+import {Col} from "reactstrap";
+import Header from "./Header";
 
 class Projects extends Component {
     render() {

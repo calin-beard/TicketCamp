@@ -1,16 +1,10 @@
-import React, {Component} from 'react';
-import {Container, Col} from 'reactstrap';
-import {Button} from 'reactstrap';
-import {Link} from 'react-router-dom';
-import './Sidebar.css';
+import React, {Component} from "react";
+import {Container, Col} from "reactstrap";
+import {Button} from "reactstrap";
+import {Link} from "react-router-dom";
+import "./Sidebar.css";
 
 class Sidebar extends Component {
-    // handleClick(e) {
-    //     //console.log(e);
-    //     const page = e.target.innerText;
-    //     this.props.onClick(page);
-    // }
-
     render() {
         return (
             <Col sm="3" className="sidebar-container">

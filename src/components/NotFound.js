@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Col} from 'reactstrap';
-import Header from './Header';
+import React, {Component} from "react";
+import {Col} from "reactstrap";
+import Header from "./Header";
 
 class NotFound extends Component {
     render() {

@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import {Col} from 'reactstrap';
-import Header from './Header';
-import RecentProjects from './RecentProjects';
-import RecentIssues from './RecentIssues';
-import './Dashboard.css';
+import React, {Component} from "react";
+import {Col} from "reactstrap";
+import Header from "./Header";
+import RecentProjects from "./RecentProjects";
+import RecentIssues from "./RecentIssues";
 
 class Dashboard extends Component {
     render() {

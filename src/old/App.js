@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
-import Sidebar from './components/Sidebar'
-import './App.css'
+import React, {Component} from "react";
+import Sidebar from "../components/Sidebar";
+import "./App.css";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            page: 'Dashboard'
+            page: "Dashboard"
         };
     }
 
@@ -21,7 +21,7 @@ class App extends Component {
         return (
             //<div className="app">
             //    <Row noGutters={true}>
-                    <Sidebar onClick={this.changePage.bind(this)}/>
+            <Sidebar onClick={this.changePage.bind(this)}/>
             //         <Col className="main-container col-sm-9">
             //             <Header page={this.state.page}/>
             //         </Col>

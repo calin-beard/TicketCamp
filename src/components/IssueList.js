@@ -1,18 +1,17 @@
-import React from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-import './IssueList.css';
+import React from "react";
+import {ListGroup, ListGroupItem} from "reactstrap";
 
 const IssueList = (props) => {
-    const IssueList = props.list.contents.map( (item, index) => {
-        return <ListGroupItem key={ index }>{item.title}</ListGroupItem>;
+    const IssueList = props.list.contents.map((item, index) => {
+        return <ListGroupItem key={index}>{item.title}</ListGroupItem>;
     });
 
     return (
-      <ListGroup>
-        <p>{props.list.title}</p>
-        { IssueList }
-      </ListGroup>
+        <ListGroup>
+            <p>{props.list.title}</p>
+            {IssueList}
+        </ListGroup>
     );
-}
+};
 
 export default IssueList;
