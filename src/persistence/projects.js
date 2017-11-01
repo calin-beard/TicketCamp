@@ -2,6 +2,19 @@
 
 import {add, get, update, remove} from 'dbHandler';
 
+/**
+ * @name Projects table
+ * @field id
+ * @field title
+ * @field description
+ * @field company
+ * @field creationDate
+ * @field lastUpdatedDate
+ * @field owner
+ * @field members
+ * @field history
+ */
+
 const projectsTable = "projects"; //todo change if necessary
 
 /** CREATE equivalent
