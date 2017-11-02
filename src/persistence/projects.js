@@ -15,7 +15,20 @@ import {add, get, update, remove} from 'dbHandler';
  * @field history (auto)
  */
 
-const projectsTable = "projects"; //todo change if necessary
+const projectsTable = "projects";
+
+const schema = {
+    id: Number,
+    title: String,
+    owner: String,
+    description: String,
+    company: String,
+    creationDate: Date,
+    lastUpdatedDate: Date,
+    members: Array,
+    history: Array
+};
+
 
 /** CREATE equivalent
  * @param item The object to be added
@@ -26,42 +39,37 @@ export function createProject(title, owner, description, company, members) {
 }
 
 /** UPDATE title
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editTitle(old, _new) {
+function editTitle(newValue) {
     //
 }
 
 /** UPDATE owner
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editOwner(old, _new) {
+function editOwner(newValue) {
     //
 }
 
 /** UPDATE description
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editDescription(old, _new) {
+function editDescription(newValue) {
     //
 }
 
 /** UPDATE company
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editCompany(old, _new) {
+function editCompany(newValue) {
     //
 }
 
 /** UPDATE members
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editMembers(old, _new) {
+function editMembers(newValue) {
     //
 }
 

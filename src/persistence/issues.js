@@ -18,7 +18,23 @@ import {add, get, update, remove} from 'dbHandler';
  * @field history (auto)
  */
 
-const issuesTable = "issues"; //todo change if necessary
+const issuesTable = "issues";
+
+const schema = {
+    id: Number,
+    title: String,
+    type: String,
+    description: String,
+    creationDate: Date,
+    lastUpdatedDate: Date,
+    state: String,
+    creator: String,
+    assignee: String,
+    childOf: Number,
+    blockerOf: Number,
+    history: Array
+};
+
 
 /** CREATE equivalent
  * @param item The object to be added
@@ -35,50 +51,44 @@ export function createIssue(title, type, description, assignee, childOf, blocker
 }
 
 /** UPDATE title
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editTitle(old, _new) {
+function editTitle(newValue) {
     //
 }
 
 /** UPDATE type
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editType(old, _new) {
+function editType(newValue) {
     //
 }
 
 /** UPDATE description
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editDescription(old, _new) {
+function editDescription(newValue) {
     //
 }
 
 /** UPDATE assignee
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editAssignee(old, _new) {
+function editAssignee(newValue) {
     //
 }
 
 /** UPDATE parent value
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editChildOf(old, _new) {
+function editChildOf(newValue) {
     //
 }
 
 /** UPDATE the issue currently blocked by this
- * @param old Old value
- * @param _new New value
+ * @param newValue New value
  */
-function editBlockerOf(old, _new) {
+function editBlockerOf(newValue) {
     //
 }
 

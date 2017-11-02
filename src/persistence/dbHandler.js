@@ -1,16 +1,22 @@
 'use strict';
 
 
-let mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/ticketcamp");
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/ticketcamp');
 
-let ticketSchema = new mongoose.Schema({
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    // we're connected!
+});
+
+var ticketSchema = mongoose.Schema({
     name: String,
     owner: String,
     issueNumber: Number
 });
 
-let Database = mongoose.model("Database", ticketSchema);
+var database = mongoose.model("Database", ticketSchema);
 
 // Database.create();
 
@@ -28,6 +34,32 @@ project.save(function(err, project) {
         console.log("Successfully saved project " + project);
     }
 });
+
+export class Item {
+
+    constructor(table, schema, field) {
+        this.table = table;
+        this.schema = schema;
+        this.field = field;
+    }
+
+    getTable() {
+        return this.table;
+    }
+
+    getSchema() {
+        return this.schema;
+    }
+
+    getField() {
+        return this.field;
+    }
+
+    setField(val) {
+        this.field = val;
+    }
+}
+
 
 /**
  * Database API containing CRUD operations and more
@@ -54,9 +86,10 @@ function get(item, table) {
 
 /** UPDATE equivalent
  * @param item The object to be updated
+ * @param newValue Value to be updated with
  * @param table The table where to update
  */
-function update(item, table) {
+function update(item, newValue, table) {
     // todo
 }
 
