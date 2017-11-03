@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Router from './Router';
+import Theme from './Theme';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<Router/>, document.getElementById('root'));
+ReactDOM.render(<Theme/>, document.getElementById('root'));
 registerServiceWorker();

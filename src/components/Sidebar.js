@@ -4,6 +4,19 @@ import {Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import "./Sidebar.css";
 
+// import Drawer from 'material-ui/Drawer';
+// import List from 'material-ui/List';
+//
+// const Sidebar = () => {
+//     return (
+//         <Drawer type="permanent">
+//             <List>
+//
+//             </List>
+//         </Drawer>
+//     );
+// }
+
 class Sidebar extends Component {
     render() {
         return (
