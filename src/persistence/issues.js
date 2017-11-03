@@ -37,9 +37,18 @@ const schema = {
 
 
 /** CREATE equivalent
- * @param item The object to be added
+ * @param title The title of the item to be created
+ * @param type The type of the item to be created
+ * @param description The description of the item to be created
+ * @param assignee The assignee of the item to be created
+ * @param childOf Item is the child of this parameter
+ * @param blockerOf Item is currently blocking this parameter
  */
 export function createIssue(title, type, description, assignee, childOf, blockerOf) {
+
+    if(title === 'undefined') throw "For creation, title is required but not assigned";
+
+    if(type === 'undefined') throw "For creation, type is required but not assigned";
 
     // b = b || 0; (e.g. 0 is default)
 
@@ -51,52 +60,58 @@ export function createIssue(title, type, description, assignee, childOf, blocker
 }
 
 /** UPDATE title
+ * @param item The item on which the field shall be updated
  * @param newValue New value
  */
-function editTitle(newValue) {
-    //
+function editTitle(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** UPDATE type
  * @param newValue New value
+ * @param item The item on which the field shall be updated
  */
-function editType(newValue) {
-    //
+function editType(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** UPDATE description
  * @param newValue New value
+ * @param item The item on which the field shall be updated
  */
-function editDescription(newValue) {
-    //
+function editDescription(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** UPDATE assignee
  * @param newValue New value
+ * @param item The item on which the field shall be updated
  */
-function editAssignee(newValue) {
-    //
+function editAssignee(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** UPDATE parent value
  * @param newValue New value
+ * @param item The item on which the field shall be updated
  */
-function editChildOf(newValue) {
-    //
+function editChildOf(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** UPDATE the issue currently blocked by this
  * @param newValue New value
+ * @param item The item on which the field shall be updated
  */
-function editBlockerOf(newValue) {
-    //
+function editBlockerOf(item, newValue) {
+    update(item, "title", newValue, issuesTable);
 }
 
 /** READ equivalent
  * @param item The object to be retrieved
  */
 export function getIssue(item) {
-    get(item, issuesTable);
+    return get(item, issuesTable);
 }
 
 /** DELETE equivalent

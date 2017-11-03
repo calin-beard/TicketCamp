@@ -86,10 +86,11 @@ function get(item, table) {
 
 /** UPDATE equivalent
  * @param item The object to be updated
+ * @param field The field from item to be updated
  * @param newValue Value to be updated with
  * @param table The table where to update
  */
-function update(item, newValue, table) {
+function update(item, field, newValue, table) {
     // todo
 }
 
