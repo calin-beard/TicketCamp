@@ -37,10 +37,10 @@ project.save(function(err, project) {
 
 export class Item {
 
-    constructor(table, schema, field) {
+    constructor(table, schema, fields) {
         this.table = table;
         this.schema = schema;
-        this.field = field;
+        this.fields = fields;
     }
 
     getTable() {
@@ -51,14 +51,24 @@ export class Item {
         return this.schema;
     }
 
-    getField() {
-        return this.field;
+    getFields() {
+        return this.fields;
     }
 
-    setField(val) {
-        this.field = val;
+    getValueOf(field) {
+        return getFields().field.value;
     }
 }
+
+// function collectionExists($collectionName)
+// {
+//     var $mongo = new Mongo();
+//     var $collectionArr = $mongo => selectDB('yourrec') => listCollections();
+//     if (in_array($collectionName, $collectionArr)) {
+//         return true;
+//     }
+//     return false;
+// }
 
 
 /**
@@ -102,4 +112,4 @@ function remove(item, table) {
     // todo
 }
 
-export { add, get, update, remove };
+export { add, get, update, remove, Item};

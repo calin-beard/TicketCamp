@@ -35,6 +35,24 @@ const schema = {
     history: Array
 };
 
+/* Usage example
+    var item = new IssueItem("Create database", "feature")
+        .add("description", "Create database APIs and implementation");
+        .add("assignee", "A dude");
+ */
+
+export class IssueItem extends Item {
+
+    constructor(title, type) {
+        super(issuesTable, schema, title, type);
+    }
+
+    add(fieldType, fieldValue) {
+        this.fields.push({fieldType, fieldValue});
+        return this;
+    }
+}
+
 
 /** CREATE equivalent
  * @param title The title of the item to be created
@@ -44,11 +62,16 @@ const schema = {
  * @param childOf Item is the child of this parameter
  * @param blockerOf Item is currently blocking this parameter
  */
-export function createIssue(title, type, description, assignee, childOf, blockerOf) {
+export function createIssue(item) {
 
-    if(title === 'undefined') throw "For creation, title is required but not assigned";
+    if(item.title === 'undefined') throw "For creation, title is required but not assigned";
 
-    if(type === 'undefined') throw "For creation, type is required but not assigned";
+    if(item.type === 'undefined') throw "For creation, type is required but not assigned";
+
+    // var fieldList = [];
+    // fieldList.push(description);
+
+    var item = new IssueItem();
 
     // b = b || 0; (e.g. 0 is default)
 
@@ -60,63 +83,63 @@ export function createIssue(title, type, description, assignee, childOf, blocker
 }
 
 /** UPDATE title
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  * @param newValue New value
  */
-function editTitle(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editTitle(itemID, newValue) {
+    update(itemID, "title", newValue, issuesTable);
 }
 
 /** UPDATE type
  * @param newValue New value
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editType(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editType(itemID, newValue) {
+    update(itemID, "type", newValue, issuesTable);
 }
 
 /** UPDATE description
  * @param newValue New value
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editDescription(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editDescription(itemID, newValue) {
+    update(itemID, "description", newValue, issuesTable);
 }
 
 /** UPDATE assignee
  * @param newValue New value
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editAssignee(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editAssignee(itemID, newValue) {
+    update(itemID, "assignee", newValue, issuesTable);
 }
 
 /** UPDATE parent value
  * @param newValue New value
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editChildOf(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editChildOf(itemID, newValue) {
+    update(itemID, "childOf", newValue, issuesTable);
 }
 
 /** UPDATE the issue currently blocked by this
  * @param newValue New value
- * @param item The item on which the field shall be updated
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editBlockerOf(item, newValue) {
-    update(item, "title", newValue, issuesTable);
+function editBlockerOf(itemID, newValue) {
+    update(itemID, "blockerOf", newValue, issuesTable);
 }
 
 /** READ equivalent
- * @param item The object to be retrieved
+ * @param itemID The id of the object to be retrieved
  */
-export function getIssue(item) {
-    return get(item, issuesTable);
+export function getIssue(itemID) {
+    return get(itemID, issuesTable);
 }
 
 /** DELETE equivalent
- * @param item The object to be removed
+ * @param itemID The id of the object to be removed
  */
-export function removeIssue(item) {
-    remove(item, issuesTable);
+export function removeIssue(itemID) {
+    remove(itemID, issuesTable);
 }
