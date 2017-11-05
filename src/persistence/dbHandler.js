@@ -61,7 +61,7 @@ export class Item {
     }
 
     getValueOf(field) {
-        return getFields().field.value;
+        return this.fields[field];
     }
 }
 

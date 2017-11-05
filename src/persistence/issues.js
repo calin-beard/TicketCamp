@@ -82,14 +82,6 @@ export function createIssue(item) {
     // });
 
     // Object.keys(obj).map(e => console.log(`key=${e}  value=${obj[e]}`));
-
-    // var fieldList = [];
-    // fieldList.push(description);
-
-    // b = b || 0; (e.g. 0 is default)
-
-    // b = (typeof b !== 'undefined') ?  b : 1;
-
 }
 
 /** UPDATE title

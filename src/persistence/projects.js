@@ -1,6 +1,6 @@
 'use strict';
 
-import {add, get, update, remove} from 'dbHandler';
+import {add, get, update, remove, Item} from 'dbHandler';
 
 /**
  * @name Projects table
@@ -29,60 +29,89 @@ const schema = {
     history: Array
 };
 
+/* Usage example
+    var item = new ProjectItem("TicketCamp", "Jason")
+        .add("description", "TicketCamp project");
+        .add("members", "Jason, Jessica");
+    createProject(item);
+ */
+
+export class ProjectItem extends Item {
+
+    constructor(title, owner) {
+        super(projectsTable, schema)
+            .add("title", title)
+            .add("owner", owner);
+    }
+}
+
 
 /** CREATE equivalent
- * @param item The object to be added
+ * @param item The ProjectItem to be created
  */
-export function createProject(title, owner, description, company, members) {
+export function createProject(item) {
 
-    // add(item, projectsTable);
+    requireOrThrow(item, 'createProject() item');
+    requireOrThrow(item.getValueOf('title'), 'createProject() title');
+    requireOrThrow(item.getValueOf('owner'), 'createProject() owner');
+
+    Object.values(item.getFields()).forEach(value => function() {
+        value = requireOrSet(value, "");
+    });
+
+    add(item);
 }
 
 /** UPDATE title
  * @param newValue New value
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editTitle(newValue) {
-    //
+function editTitle(itemID, newValue) {
+    update(itemID, "title", newValue, projectsTable);
 }
 
 /** UPDATE owner
  * @param newValue New value
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editOwner(newValue) {
-    //
+function editOwner(itemID, newValue) {
+    update(itemID, "owner", newValue, projectsTable);
 }
 
 /** UPDATE description
  * @param newValue New value
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editDescription(newValue) {
-    //
+function editDescription(itemID, newValue) {
+    update(itemID, "description", newValue, projectsTable);
 }
 
 /** UPDATE company
  * @param newValue New value
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editCompany(newValue) {
-    //
+function editCompany(itemID, newValue) {
+    update(itemID, "company", newValue, projectsTable);
 }
 
 /** UPDATE members
  * @param newValue New value
+ * @param itemID The id of the item on which the field shall be updated
  */
-function editMembers(newValue) {
-    //
+function editMembers(itemID, newValue) {
+    update(itemID, "members", newValue, projectsTable);
 }
 
 /** READ equivalent
- * @param item The object to be retrieved
+ * @param itemID The id of the object to be retrieved
  */
-export function getProject(item) {
-    get(item, projectsTable);
+export function getProject(itemID) {
+    get(itemID, projectsTable);
 }
 
 /** DELETE equivalent
- * @param item The object to be removed
+ * @param itemID The id of the object to be removed
  */
-export function removeProject(item) {
-    remove(item, projectsTable);
+export function removeProject(itemID) {
+    remove(itemID, projectsTable);
 }
