@@ -1,6 +1,6 @@
 'use strict';
 
-import {add, get, update, remove} from 'dbHandler';
+import {add, get, update, remove, Item} from 'dbHandler';
 
 /**
  * @name Issues table
@@ -38,48 +38,58 @@ const schema = {
 /* Usage example
     var item = new IssueItem("Create database", "feature")
         .add("description", "Create database APIs and implementation");
-        .add("assignee", "A dude");
+        .add("assignee", "Jason");
+    createIssue(item);
  */
 
 export class IssueItem extends Item {
 
     constructor(title, type) {
-        super(issuesTable, schema, title, type);
-    }
-
-    add(fieldType, fieldValue) {
-        this.fields.push({fieldType, fieldValue});
-        return this;
+        super(issuesTable, schema)
+            .add("title", title)
+            .add("type", type);
     }
 }
 
 
 /** CREATE equivalent
- * @param title The title of the item to be created
- * @param type The type of the item to be created
- * @param description The description of the item to be created
- * @param assignee The assignee of the item to be created
- * @param childOf Item is the child of this parameter
- * @param blockerOf Item is currently blocking this parameter
+ * @param item The IssueItem to be created
  */
 export function createIssue(item) {
 
-    if(item.title === 'undefined') throw "For creation, title is required but not assigned";
+    requireOrThrow(item, 'createIssue() item');
+    requireOrThrow(item.getValueOf('title'), 'createIssue() title');
+    requireOrThrow(item.getValueOf('type'), 'createIssue() type');
 
-    if(item.type === 'undefined') throw "For creation, type is required but not assigned";
+    Object.values(item.getFields()).forEach(value => function() {
+        value = requireOrSet(value, "");
+    });
+
+    add(item);
+
+    // for(var i in foo){
+    //     alert(i); // alerts key
+    //     alert(foo[i]); //alerts key's value
+    // }
+
+    // for(let i in item.getFields()) {
+    //     requireOrSet(i, "");
+    // }
+
+    // Object.keys(item.getFields()).forEach(function(key, index) {
+    // key: the name of the object key
+    // index: the ordinal position of the key within the object
+    // });
+
+    // Object.keys(obj).map(e => console.log(`key=${e}  value=${obj[e]}`));
 
     // var fieldList = [];
     // fieldList.push(description);
-
-    var item = new IssueItem();
 
     // b = b || 0; (e.g. 0 is default)
 
     // b = (typeof b !== 'undefined') ?  b : 1;
 
-    // if(typeof myVariable === 'undefined') {
-    //     myVariable = 'default';
-    // }
 }
 
 /** UPDATE title

@@ -43,6 +43,11 @@ export class Item {
         this.fields = fields;
     }
 
+    add(fieldType, fieldValue) {
+        this.fields.push({fieldType, fieldValue});
+        return this;
+    }
+
     getTable() {
         return this.table;
     }
@@ -82,8 +87,12 @@ const databaseName = ""; //todo set database name
  * @param item The object to be added
  * @param table The table where to add to
  */
-function add(item, table) {
+function add(item) {
+
     // todo
+    // for (let key in item.getFields()) {
+    //     alert("User " + item[key] + " is #" + key); // "User john is #234"
+    // }
 }
 
 /** READ equivalent
