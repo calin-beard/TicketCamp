@@ -66,7 +66,7 @@ export function createProject(item) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editTitle(itemID, newValue) {
+export function editTitle(itemID, newValue) {
     update(itemID, "title", newValue, projectsTable);
 }
 
@@ -74,7 +74,7 @@ function editTitle(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editOwner(itemID, newValue) {
+export function editOwner(itemID, newValue) {
     update(itemID, "owner", newValue, projectsTable);
 }
 
@@ -82,7 +82,7 @@ function editOwner(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editDescription(itemID, newValue) {
+export function editDescription(itemID, newValue) {
     update(itemID, "description", newValue, projectsTable);
 }
 
@@ -90,7 +90,7 @@ function editDescription(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editCompany(itemID, newValue) {
+export function editCompany(itemID, newValue) {
     update(itemID, "company", newValue, projectsTable);
 }
 
@@ -98,7 +98,7 @@ function editCompany(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editMembers(itemID, newValue) {
+export function editMembers(itemID, newValue) {
     update(itemID, "members", newValue, projectsTable);
 }
 

@@ -88,7 +88,7 @@ export function createIssue(item) {
  * @param itemID The id of the item on which the field shall be updated
  * @param newValue New value
  */
-function editTitle(itemID, newValue) {
+export function editTitle(itemID, newValue) {
     update(itemID, "title", newValue, issuesTable);
 }
 
@@ -96,7 +96,7 @@ function editTitle(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editType(itemID, newValue) {
+export function editType(itemID, newValue) {
     update(itemID, "type", newValue, issuesTable);
 }
 
@@ -104,7 +104,7 @@ function editType(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editDescription(itemID, newValue) {
+export function editDescription(itemID, newValue) {
     update(itemID, "description", newValue, issuesTable);
 }
 
@@ -112,7 +112,7 @@ function editDescription(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editAssignee(itemID, newValue) {
+export function editAssignee(itemID, newValue) {
     update(itemID, "assignee", newValue, issuesTable);
 }
 
@@ -120,7 +120,7 @@ function editAssignee(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editChildOf(itemID, newValue) {
+export function editChildOf(itemID, newValue) {
     update(itemID, "childOf", newValue, issuesTable);
 }
 
@@ -128,7 +128,7 @@ function editChildOf(itemID, newValue) {
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-function editBlockerOf(itemID, newValue) {
+export function editBlockerOf(itemID, newValue) {
     update(itemID, "blockerOf", newValue, issuesTable);
 }
 

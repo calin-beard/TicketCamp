@@ -1,4 +1,4 @@
-import {IssueItem, createIssue} from "../../src/persistence/issues";
+import * as issues from "../../src/persistence/issues";
 
 let assert = require('assert');
 
@@ -8,11 +8,21 @@ function basicTest() {
 
 function testCreate_throws() {
 
-    let x = new IssueItem();
-    let y = new IssueItem("myTitle");
+    let x = new issues.IssueItem();
+    let y = new issues.IssueItem("myTitle");
 
-    assert.throws(createIssue(x), Error, "Error thrown");
-    assert.throws(createIssue(y), Error, "Error thrown");
+    assert.throws(issues.createIssue(x), Error, "Error thrown");
+    assert.throws(issues.createIssue(y), Error, "Error thrown");
+
+    //todo
+    issues.editAssignee();
+    issues.editBlockerOf();
+    issues.editChildOf();
+    issues.editDescription();
+    issues.editTitle();
+    issues.editType();
+    issues.getIssue();
+    issues.removeIssue();
 }
 
 console.log("Starting 'issue' tests");

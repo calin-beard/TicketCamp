@@ -1,22 +1,22 @@
 'use strict';
 
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ticketcamp');
 
-var db = mongoose.connection;
+let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     // we're connected!
 });
 
-var ticketSchema = mongoose.Schema({
+let ticketSchema = mongoose.Schema({
     name: String,
     owner: String,
     issueNumber: Number
 });
 
-var database = mongoose.model("Database", ticketSchema);
+let database = mongoose.model("Database", ticketSchema);
 
 // Database.create();
 
