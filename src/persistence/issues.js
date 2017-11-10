@@ -1,38 +1,24 @@
 'use strict';
 
-import {add, get, update, remove, Item} from 'dbHandler';
+import { add, get, update, remove, Item } from 'dbHandler';
 
-/**
- * @name Issues table
- * @field id (auto)
- * @field title (required)
- * @field type (required)
- * @field description (optional)
- * @field creationDate (auto)
- * @field lastUpdatedDate (auto)
- * @field state (auto)
- * @field creator (auto)
- * @field assignee (optional)
- * @field childOf (optional)
- * @field blockerOf (optional)
- * @field history (auto)
- */
 
 const issuesTable = "issues";
 
+/** Issues schema */
 const schema = {
-    id: Number,
-    title: String,
-    type: String,
-    description: String,
-    creationDate: Date,
-    lastUpdatedDate: Date,
-    state: String,
-    creator: String,
-    assignee: String,
-    childOf: Number,
-    blockerOf: Number,
-    history: Array
+    id: Number,             /* id (auto) */
+    title: String,          /* title (required) */
+    type: String,           /* type (required) */
+    description: String,    /* description (optional) */
+    creationDate: Date,     /* creationDate (auto) */
+    lastUpdatedDate: Date,  /* lastUpdatedDate (auto) */
+    state: String,          /* state (auto) */
+    creator: String,        /* creator (auto) */
+    assignee: String,       /* assignee (optional) */
+    childOf: Number,        /* childOf (optional) */
+    blockerOf: Number,      /* blockerOf (optional) */
+    history: Array          /* history (auto) */
 };
 
 /* Usage example
@@ -66,22 +52,6 @@ export function createIssue(item) {
     });
 
     add(item);
-
-    // for(var i in foo){
-    //     alert(i); // alerts key
-    //     alert(foo[i]); //alerts key's value
-    // }
-
-    // for(let i in item.getFields()) {
-    //     requireOrSet(i, "");
-    // }
-
-    // Object.keys(item.getFields()).forEach(function(key, index) {
-    // key: the name of the object key
-    // index: the ordinal position of the key within the object
-    // });
-
-    // Object.keys(obj).map(e => console.log(`key=${e}  value=${obj[e]}`));
 }
 
 /** UPDATE title

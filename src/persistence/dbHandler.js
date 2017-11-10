@@ -121,4 +121,4 @@ function remove(item, table) {
     // todo
 }
 
-export { add, get, update, remove, Item};
+export { add, get, update, remove, Item };

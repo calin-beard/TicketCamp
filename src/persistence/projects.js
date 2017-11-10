@@ -1,32 +1,21 @@
 'use strict';
 
-import {add, get, update, remove, Item} from 'dbHandler';
+import { add, get, update, remove, Item } from 'dbHandler';
 
-/**
- * @name Projects table
- * @field id (auto)
- * @field title (required)
- * @field owner (required)
- * @field description (optional)
- * @field company (optional)
- * @field creationDate (auto)
- * @field lastUpdatedDate (auto)
- * @field members (optional)
- * @field history (auto)
- */
 
 const projectsTable = "projects";
 
+/** Projects schema */
 const schema = {
-    id: Number,
-    title: String,
-    owner: String,
-    description: String,
-    company: String,
-    creationDate: Date,
-    lastUpdatedDate: Date,
-    members: Array,
-    history: Array
+    id: Number,             /* id (auto) */
+    title: String,          /* title (required) */
+    owner: String,          /* owner (required) */
+    description: String,    /* description (optional) */
+    company: String,        /* company (optional) */
+    creationDate: Date,     /* creationDate (auto) */
+    lastUpdatedDate: Date,  /* lastUpdatedDate (auto) */
+    members: Array,         /* members (optional) */
+    history: Array          /* history (auto) */
 };
 
 /* Usage example
