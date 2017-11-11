@@ -45,7 +45,7 @@ exports.createProject = function(item) {
     validation.requireOrThrow(item.getValueOf('owner'), 'createProject() owner');
 
     for(let i in item.getFields()) {
-        i = validation.requireOrSet(i, "");
+        item.getFields()[i] = validation.requireOrSet(item.getFields()[i], "");
     }
 
     handler.add(item);
