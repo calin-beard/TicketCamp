@@ -7,18 +7,18 @@ const issuesTable = "issues";
 
 /** Issues schema */
 const schema = {
-    id: Number,             /* id (auto) */
-    title: String,          /* title (required) */
-    type: String,           /* type (required) */
-    description: String,    /* description (optional) */
-    creationDate: Date,     /* creationDate (auto) */
-    lastUpdatedDate: Date,  /* lastUpdatedDate (auto) */
-    state: String,          /* state (auto) */
-    creator: String,        /* creator (auto) */
-    assignee: String,       /* assignee (optional) */
-    childOf: Number,        /* childOf (optional) */
-    blockerOf: Number,      /* blockerOf (optional) */
-    history: Array          /* history (auto) */
+    id: null,               /* id: Number (auto) */
+    title: null,            /* title: String (required) */
+    type: null,             /* type: String (required) */
+    description: null,      /* description: String (optional) */
+    creationDate: null,     /* creationDate: Date (auto) */
+    lastUpdatedDate: null,  /* lastUpdatedDate: Date (auto) */
+    state: null,            /* state: String (auto) */
+    creator: null,          /* creator: String (auto) */
+    assignee: null,         /* assignee: String (optional) */
+    childOf: null,          /* childOf: Number (optional) */
+    blockerOf: null,        /* blockerOf: Number (optional) */
+    history: null           /* history: Array (auto) */
 };
 
 /* Usage example

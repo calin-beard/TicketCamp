@@ -7,15 +7,15 @@ const projectsTable = "projects";
 
 /** Projects schema */
 const schema = {
-    id: Number,             /* id (auto) */
-    title: String,          /* title (required) */
-    owner: String,          /* owner (required) */
-    description: String,    /* description (optional) */
-    company: String,        /* company (optional) */
-    creationDate: Date,     /* creationDate (auto) */
-    lastUpdatedDate: Date,  /* lastUpdatedDate (auto) */
-    members: Array,         /* members (optional) */
-    history: Array          /* history (auto) */
+    id: null,               /* id: Number (auto) */
+    title: null,            /* title: String (required) */
+    owner: null,            /* owner: String (required) */
+    description: null,      /* description: String (optional) */
+    company: null,          /* company: String (optional) */
+    creationDate: null,     /* creationDate: Date (auto) */
+    lastUpdatedDate: null,  /* lastUpdatedDate: Date (auto) */
+    members: null,          /* members: Array (optional) */
+    history: null           /* history: Array (auto) */
 };
 
 /* Usage example

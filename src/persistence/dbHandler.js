@@ -14,7 +14,6 @@ exports.Item = class {
 
     constructor(table, schema) {
         this.table = table;
-        this.schema = schema;
         this.fields = schema;
     }
 
@@ -25,10 +24,6 @@ exports.Item = class {
 
     getTable() {
         return this.table;
-    }
-
-    getSchema() {
-        return this.schema;
     }
 
     getFields() {
