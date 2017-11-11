@@ -1,7 +1,6 @@
 'use strict';
 
-import { add, get, update, remove, Item } from 'dbHandler';
-
+const handler = require('./dbHandler');
 
 const issuesTable = "issues";
 
@@ -23,25 +22,25 @@ const schema = {
 
 /* Usage example
     var item = new IssueItem("Create database", "feature")
-        .add("description", "Create database APIs and implementation");
-        .add("assignee", "Jason");
+        .addField("description", "Create database APIs and implementation");
+        .addField("assignee", "Jason");
     createIssue(item);
  */
 
-export class IssueItem extends Item {
+exports.IssueItem = class extends handler.Item {
 
     constructor(title, type) {
         super(issuesTable, schema)
-            .add("title", title)
-            .add("type", type);
+            .addField("title", title)
+            .addField("type", type);
     }
-}
+};
 
 
 /** CREATE equivalent
  * @param item The IssueItem to be created
  */
-export function createIssue(item) {
+exports.createIssue = function(item) {
 
     requireOrThrow(item, 'createIssue() item');
     requireOrThrow(item.getValueOf('title'), 'createIssue() title');
@@ -51,67 +50,67 @@ export function createIssue(item) {
         value = requireOrSet(value, "");
     });
 
-    add(item);
-}
+    handler.add(item);
+};
 
 /** UPDATE title
  * @param itemID The id of the item on which the field shall be updated
  * @param newValue New value
  */
-export function editTitle(itemID, newValue) {
-    update(itemID, "title", newValue, issuesTable);
-}
+exports.editTitle = function(itemID, newValue) {
+    handler.update(itemID, "title", newValue, issuesTable);
+};
 
 /** UPDATE type
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editType(itemID, newValue) {
-    update(itemID, "type", newValue, issuesTable);
-}
+exports.editType = function(itemID, newValue) {
+    handler.update(itemID, "type", newValue, issuesTable);
+};
 
 /** UPDATE description
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editDescription(itemID, newValue) {
-    update(itemID, "description", newValue, issuesTable);
-}
+exports.editDescription = function(itemID, newValue) {
+    handler.update(itemID, "description", newValue, issuesTable);
+};
 
 /** UPDATE assignee
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editAssignee(itemID, newValue) {
-    update(itemID, "assignee", newValue, issuesTable);
-}
+exports.editAssignee = function(itemID, newValue) {
+    handler.update(itemID, "assignee", newValue, issuesTable);
+};
 
 /** UPDATE parent value
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editChildOf(itemID, newValue) {
-    update(itemID, "childOf", newValue, issuesTable);
-}
+exports.editChildOf = function(itemID, newValue) {
+    handler.update(itemID, "childOf", newValue, issuesTable);
+};
 
 /** UPDATE the issue currently blocked by this
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editBlockerOf(itemID, newValue) {
-    update(itemID, "blockerOf", newValue, issuesTable);
-}
+exports.editBlockerOf = function(itemID, newValue) {
+    handler.update(itemID, "blockerOf", newValue, issuesTable);
+};
 
 /** READ equivalent
  * @param itemID The id of the object to be retrieved
  */
-export function getIssue(itemID) {
-    return get(itemID, issuesTable);
-}
+exports.getIssue = function(itemID) {
+    return handler.get(itemID, issuesTable);
+};
 
 /** DELETE equivalent
  * @param itemID The id of the object to be removed
  */
-export function removeIssue(itemID) {
-    remove(itemID, issuesTable);
-}
+exports.removeIssue = function(itemID) {
+    handler.remove(itemID, issuesTable);
+};

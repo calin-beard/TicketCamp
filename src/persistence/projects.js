@@ -1,7 +1,6 @@
 'use strict';
 
-import { add, get, update, remove, Item } from 'dbHandler';
-
+const handler = require('./dbHandler');
 
 const projectsTable = "projects";
 
@@ -25,20 +24,20 @@ const schema = {
     createProject(item);
  */
 
-export class ProjectItem extends Item {
+exports.ProjectItem = class extends handler.Item {
 
     constructor(title, owner) {
         super(projectsTable, schema)
             .add("title", title)
             .add("owner", owner);
     }
-}
+};
 
 
 /** CREATE equivalent
  * @param item The ProjectItem to be created
  */
-export function createProject(item) {
+exports.createProject = function(item) {
 
     requireOrThrow(item, 'createProject() item');
     requireOrThrow(item.getValueOf('title'), 'createProject() title');
@@ -48,59 +47,59 @@ export function createProject(item) {
         value = requireOrSet(value, "");
     });
 
-    add(item);
-}
+    handler.add(item);
+};
 
 /** UPDATE title
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editTitle(itemID, newValue) {
-    update(itemID, "title", newValue, projectsTable);
-}
+exports.editTitle = function(itemID, newValue) {
+    handler.update(itemID, "title", newValue, projectsTable);
+};
 
 /** UPDATE owner
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editOwner(itemID, newValue) {
-    update(itemID, "owner", newValue, projectsTable);
-}
+exports.editOwner = function(itemID, newValue) {
+    handler.update(itemID, "owner", newValue, projectsTable);
+};
 
 /** UPDATE description
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editDescription(itemID, newValue) {
-    update(itemID, "description", newValue, projectsTable);
-}
+exports.editDescription = function(itemID, newValue) {
+    handler.update(itemID, "description", newValue, projectsTable);
+};
 
 /** UPDATE company
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editCompany(itemID, newValue) {
-    update(itemID, "company", newValue, projectsTable);
-}
+exports.editCompany = function(itemID, newValue) {
+    handler.update(itemID, "company", newValue, projectsTable);
+};
 
 /** UPDATE members
  * @param newValue New value
  * @param itemID The id of the item on which the field shall be updated
  */
-export function editMembers(itemID, newValue) {
-    update(itemID, "members", newValue, projectsTable);
-}
+exports.editMembers = function(itemID, newValue) {
+    handler.update(itemID, "members", newValue, projectsTable);
+};
 
 /** READ equivalent
  * @param itemID The id of the object to be retrieved
  */
-export function getProject(itemID) {
-    get(itemID, projectsTable);
-}
+exports.getProject = function(itemID) {
+    handler.get(itemID, projectsTable);
+};
 
 /** DELETE equivalent
  * @param itemID The id of the object to be removed
  */
-export function removeProject(itemID) {
-    remove(itemID, projectsTable);
-}
+exports.removeProject = function(itemID) {
+    handler.remove(itemID, projectsTable);
+};

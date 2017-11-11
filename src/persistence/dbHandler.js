@@ -10,7 +10,7 @@ let connection = MongoClient.connect(url, function(err, db) {
 });
 
 
-export class Item {
+exports.Item = class {
 
     constructor(table, schema, fields) {
         this.table = table;
@@ -18,8 +18,8 @@ export class Item {
         this.fields = fields;
     }
 
-    add(fieldType, fieldValue) {
-        this.fields.push({fieldType, fieldValue});
+    addField(fieldType, fieldValue) {
+        this.fields[fieldType] = fieldValue;
         return this;
     }
 
@@ -38,7 +38,7 @@ export class Item {
     getValueOf(field) {
         return this.fields[field];
     }
-}
+};
 
 
 /**
@@ -51,25 +51,27 @@ const databaseName = ""; //todo set database name
 /** CREATE equivalent
  * @param item The object to be added
  */
-function add(item) {
+exports.add = function(item) {
 
     //todo
 
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        db.collection(item.getTable()).insertOne(item.getFields(), function(err, result) {
-            if (err) throw err;
-            console.log("1 document inserted");
-            db.close();
-        });
-    });
-}
+    // MongoClient.connect(url, function(err, db) {
+    //     if (err) throw err;
+    //     db.collection(item.getTable()).insertOne(item.getFields(), function(err, result) {
+    //         if (err) throw err;
+    //         console.log("1 document inserted");
+    //         db.close();
+    //     });
+    // });
+
+    console.log("handler-add reached");
+};
 
 /** READ equivalent
  * @param itemID The object to be retrieved
  * @param table The table where to retrieve from
  */
-function get(itemID, table) {
+exports.get = function(itemID, table) {
 
     // todo
 
@@ -77,7 +79,7 @@ function get(itemID, table) {
         if (err) return console.error(err);
         return item;
     });
-}
+};
 
 /** UPDATE equivalent
  * @param itemID The object to be updated
@@ -85,16 +87,23 @@ function get(itemID, table) {
  * @param newValue Value to be updated with
  * @param table The table where to update
  */
-function update(itemID, field, newValue, table) {
+exports.update = function(itemID, field, newValue, table) {
     // todo
-}
+};
 
 /** DELETE equivalent
  * @param itemID The object to be removed
  * @param table The table where to remove from
  */
-function remove(itemID, table) {
+exports.remove = function(itemID, table) {
     // todo
-}
+};
 
-export { add, get, update, remove, Item };
+// module.exports = {
+//     add: function () {
+//         // whatever
+//     },
+//     get: function () {
+//         // whatever
+//     }
+// };
