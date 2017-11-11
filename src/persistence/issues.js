@@ -1,6 +1,7 @@
 'use strict';
 
 const handler = require('./dbHandler');
+const validation = require('../utility/validation');
 
 const issuesTable = "issues";
 
@@ -42,13 +43,13 @@ exports.IssueItem = class extends handler.Item {
  */
 exports.createIssue = function(item) {
 
-    requireOrThrow(item, 'createIssue() item');
-    requireOrThrow(item.getValueOf('title'), 'createIssue() title');
-    requireOrThrow(item.getValueOf('type'), 'createIssue() type');
+    validation.requireOrThrow(item, 'createIssue() item');
+    validation.requireOrThrow(item.getValueOf('title'), 'createIssue() title');
+    validation.requireOrThrow(item.getValueOf('type'), 'createIssue() type');
 
-    Object.values(item.getFields()).forEach(value => function() {
-        value = requireOrSet(value, "");
-    });
+    for(let i in item.getFields()) {
+        i = validation.requireOrSet(i, "");
+    }
 
     handler.add(item);
 };

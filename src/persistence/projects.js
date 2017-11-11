@@ -1,6 +1,7 @@
 'use strict';
 
 const handler = require('./dbHandler');
+const validation = require('../utility/validation');
 
 const projectsTable = "projects";
 
@@ -39,13 +40,13 @@ exports.ProjectItem = class extends handler.Item {
  */
 exports.createProject = function(item) {
 
-    requireOrThrow(item, 'createProject() item');
-    requireOrThrow(item.getValueOf('title'), 'createProject() title');
-    requireOrThrow(item.getValueOf('owner'), 'createProject() owner');
+    validation.requireOrThrow(item, 'createProject() item');
+    validation.requireOrThrow(item.getValueOf('title'), 'createProject() title');
+    validation.requireOrThrow(item.getValueOf('owner'), 'createProject() owner');
 
-    Object.values(item.getFields()).forEach(value => function() {
-        value = requireOrSet(value, "");
-    });
+    for(let i in item.getFields()) {
+        i = validation.requireOrSet(i, "");
+    }
 
     handler.add(item);
 };

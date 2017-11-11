@@ -63,3 +63,7 @@
 //     }
 //     return false;
 // }
+
+// Object.values(item.getFields()).forEach(value => function() {
+//     value = validation.requireOrSet(value, "");
+// });

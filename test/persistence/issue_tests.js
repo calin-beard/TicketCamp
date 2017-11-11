@@ -14,6 +14,8 @@ function testCreate_throws() {
     // let y = new issues.IssueItem("myTitle");
     let z = new issues.IssueItem("Create database", "feature");
 
+    issues.createIssue(z);
+
     // assert.throws(issues.createIssue(x), Error, "Error thrown");
     // assert.throws(issues.createIssue(y), Error, "Error thrown");
     // assert.throws(issues.createIssue(z), Error, "Error thrown");

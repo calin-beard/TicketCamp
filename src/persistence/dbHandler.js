@@ -3,19 +3,19 @@
 let MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost/ticketcamp";
 
-let connection = MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    console.log("Database created!");
-    db.close();
-});
+// let connection = MongoClient.connect(url, function(err, db) {
+//     if (err) throw err;
+//     console.log("Database created!");
+//     db.close();
+// });
 
 
 exports.Item = class {
 
-    constructor(table, schema, fields) {
+    constructor(table, schema) {
         this.table = table;
         this.schema = schema;
-        this.fields = fields;
+        this.fields = schema;
     }
 
     addField(fieldType, fieldValue) {
@@ -63,8 +63,6 @@ exports.add = function(item) {
     //         db.close();
     //     });
     // });
-
-    console.log("handler-add reached");
 };
 
 /** READ equivalent
@@ -75,10 +73,10 @@ exports.get = function(itemID, table) {
 
     // todo
 
-    Database.find({ name: itemID }, function (err, item) {
-        if (err) return console.error(err);
-        return item;
-    });
+    // Database.find({ name: itemID }, function (err, item) {
+    //     if (err) return console.error(err);
+    //     return item;
+    // });
 };
 
 /** UPDATE equivalent
