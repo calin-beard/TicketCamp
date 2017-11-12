@@ -67,3 +67,12 @@
 // Object.values(item.getFields()).forEach(value => function() {
 //     value = validation.requireOrSet(value, "");
 // });
+
+// module.exports = {
+//     add: function () {
+//         // whatever
+//     },
+//     get: function () {
+//         // whatever
+//     }
+// };

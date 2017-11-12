@@ -1,5 +1,3 @@
-// import * as issues from "../../src/persistence/issues";
-
 const issues = require('../../src/persistence/issues');
 
 let assert = require('assert');
@@ -11,24 +9,23 @@ function basicTest() {
 function testCreate_throws() {
 
     // let x = new issues.IssueItem();
+    // assert.throws(issues.createIssue(x), Error, "Error thrown");
+
     // let y = new issues.IssueItem("myTitle");
+    // assert.throws(issues.createIssue(y), Error, "Error thrown");
+
     let z = new issues.IssueItem("Create database", "feature");
 
-    issues.createIssue(z);
-
-    // assert.throws(issues.createIssue(x), Error, "Error thrown");
-    // assert.throws(issues.createIssue(y), Error, "Error thrown");
-    // assert.throws(issues.createIssue(z), Error, "Error thrown");
-
-    //todo
-    // issues.editAssignee();
-    // issues.editBlockerOf();
-    // issues.editChildOf();
-    // issues.editDescription();
-    // issues.editTitle();
-    // issues.editType();
-    // issues.getIssue();
-    // issues.removeIssue();
+    assert.equal(issues.createIssue(z), true);
+    assert.equal(issues.editDescription(z, "hello"), true);
+    assert.equal(issues.editAssignee(z, "hello"), true);
+    assert.equal(issues.editBlockerOf(z, "hello"), true);
+    assert.equal(issues.editChildOf(z, "hello"), true);
+    assert.equal(issues.editDescription(z, "hello"), true);
+    assert.equal(issues.editTitle(z, "hello"), true);
+    assert.equal(issues.editType(z, "hello"), true);
+    assert.equal(issues.getIssue(z), true);
+    assert.equal(issues.removeIssue(z), true);
 }
 
 console.log("Starting 'issue' tests");

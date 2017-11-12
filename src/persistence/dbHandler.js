@@ -49,6 +49,7 @@ const databaseName = ""; //todo set database name
 exports.add = function(item) {
 
     //todo
+    return true;
 
     // MongoClient.connect(url, function(err, db) {
     //     if (err) throw err;
@@ -67,6 +68,7 @@ exports.add = function(item) {
 exports.get = function(itemID, table) {
 
     // todo
+    return true;
 
     // Database.find({ name: itemID }, function (err, item) {
     //     if (err) return console.error(err);
@@ -81,7 +83,9 @@ exports.get = function(itemID, table) {
  * @param table The table where to update
  */
 exports.update = function(itemID, field, newValue, table) {
+
     // todo
+    return true;
 };
 
 /** DELETE equivalent
@@ -89,14 +93,7 @@ exports.update = function(itemID, field, newValue, table) {
  * @param table The table where to remove from
  */
 exports.remove = function(itemID, table) {
-    // todo
-};
 
-// module.exports = {
-//     add: function () {
-//         // whatever
-//     },
-//     get: function () {
-//         // whatever
-//     }
-// };
+    // todo
+    return true;
+};

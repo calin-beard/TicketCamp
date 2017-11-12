@@ -48,7 +48,7 @@ exports.createProject = function(item) {
         item.getFields()[i] = validation.requireOrSet(item.getFields()[i], "");
     }
 
-    handler.add(item);
+    return handler.add(item);
 };
 
 /** UPDATE title
@@ -56,7 +56,7 @@ exports.createProject = function(item) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editTitle = function(itemID, newValue) {
-    handler.update(itemID, "title", newValue, projectsTable);
+    return handler.update(itemID, "title", newValue, projectsTable);
 };
 
 /** UPDATE owner
@@ -64,7 +64,7 @@ exports.editTitle = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editOwner = function(itemID, newValue) {
-    handler.update(itemID, "owner", newValue, projectsTable);
+    return handler.update(itemID, "owner", newValue, projectsTable);
 };
 
 /** UPDATE description
@@ -72,7 +72,7 @@ exports.editOwner = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editDescription = function(itemID, newValue) {
-    handler.update(itemID, "description", newValue, projectsTable);
+    return handler.update(itemID, "description", newValue, projectsTable);
 };
 
 /** UPDATE company
@@ -80,7 +80,7 @@ exports.editDescription = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editCompany = function(itemID, newValue) {
-    handler.update(itemID, "company", newValue, projectsTable);
+    return handler.update(itemID, "company", newValue, projectsTable);
 };
 
 /** UPDATE members
@@ -88,19 +88,19 @@ exports.editCompany = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editMembers = function(itemID, newValue) {
-    handler.update(itemID, "members", newValue, projectsTable);
+    return handler.update(itemID, "members", newValue, projectsTable);
 };
 
 /** READ equivalent
  * @param itemID The id of the object to be retrieved
  */
 exports.getProject = function(itemID) {
-    handler.get(itemID, projectsTable);
+    return handler.get(itemID, projectsTable);
 };
 
 /** DELETE equivalent
  * @param itemID The id of the object to be removed
  */
 exports.removeProject = function(itemID) {
-    handler.remove(itemID, projectsTable);
+    return handler.remove(itemID, projectsTable);
 };

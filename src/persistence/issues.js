@@ -51,7 +51,7 @@ exports.createIssue = function(item) {
         item.getFields()[i] = validation.requireOrSet(item.getFields()[i], "");
     }
 
-    handler.add(item);
+    return handler.add(item);
 };
 
 /** UPDATE title
@@ -59,7 +59,7 @@ exports.createIssue = function(item) {
  * @param newValue New value
  */
 exports.editTitle = function(itemID, newValue) {
-    handler.update(itemID, "title", newValue, issuesTable);
+    return handler.update(itemID, "title", newValue, issuesTable);
 };
 
 /** UPDATE type
@@ -67,7 +67,7 @@ exports.editTitle = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editType = function(itemID, newValue) {
-    handler.update(itemID, "type", newValue, issuesTable);
+    return handler.update(itemID, "type", newValue, issuesTable);
 };
 
 /** UPDATE description
@@ -75,7 +75,7 @@ exports.editType = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editDescription = function(itemID, newValue) {
-    handler.update(itemID, "description", newValue, issuesTable);
+    return handler.update(itemID, "description", newValue, issuesTable);
 };
 
 /** UPDATE assignee
@@ -83,7 +83,7 @@ exports.editDescription = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editAssignee = function(itemID, newValue) {
-    handler.update(itemID, "assignee", newValue, issuesTable);
+    return handler.update(itemID, "assignee", newValue, issuesTable);
 };
 
 /** UPDATE parent value
@@ -91,7 +91,7 @@ exports.editAssignee = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editChildOf = function(itemID, newValue) {
-    handler.update(itemID, "childOf", newValue, issuesTable);
+    return handler.update(itemID, "childOf", newValue, issuesTable);
 };
 
 /** UPDATE the issue currently blocked by this
@@ -99,7 +99,7 @@ exports.editChildOf = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editBlockerOf = function(itemID, newValue) {
-    handler.update(itemID, "blockerOf", newValue, issuesTable);
+    return handler.update(itemID, "blockerOf", newValue, issuesTable);
 };
 
 /** READ equivalent
@@ -113,5 +113,5 @@ exports.getIssue = function(itemID) {
  * @param itemID The id of the object to be removed
  */
 exports.removeIssue = function(itemID) {
-    handler.remove(itemID, issuesTable);
+    return handler.remove(itemID, issuesTable);
 };
