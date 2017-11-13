@@ -3,13 +3,6 @@
 let MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost/ticketcamp";
 
-// let connection = MongoClient.connect(url, function(err, db) {
-//     if (err) throw err;
-//     console.log("Database created!");
-//     db.close();
-// });
-
-
 exports.Item = class {
 
     constructor(table, schema) {
@@ -78,7 +71,7 @@ exports.get = function(fieldName, fieldValue, table) {
 
         const query = { fieldName: fieldValue };
 
-        db.collection(table).findOne(query, function(err, result) {
+        db.collection(table).find(query).toArray(function(err, result) {
             if (err) throw err;
             console.log("1 document found");
             db.close();
@@ -88,15 +81,36 @@ exports.get = function(fieldName, fieldValue, table) {
 };
 
 /** UPDATE equivalent
- * @param itemID The object to be updated
- * @param field The field from item to be updated
+ * @param fieldName The field name from the object to be updated
+ * @param fieldValue The known field value of fieldName
  * @param newValue Value to be updated with
  * @param table The table where to update
  */
-exports.update = function(itemID, field, newValue, table) {
+exports.update = function(fieldName, fieldValue, newValue, table) {
 
     // todo
-    return true;
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            console.log("Could not connect to Mongo");
+            return false;
+        }
+
+        const getQuery = {};
+        const setQuery = {};
+        const innerSetQuery = {};
+
+        getQuery[fieldName] = fieldValue;
+        innerSetQuery[fieldName] = newValue;
+        setQuery['$set'] = innerSetQuery;
+
+        db.collection(table).updateOne(getQuery, setQuery, function(err, result) {
+            if (err) throw err;
+            console.log("1 document updated");
+            db.close();
+            return result;
+        });
+    });
 };
 
 /** DELETE equivalent

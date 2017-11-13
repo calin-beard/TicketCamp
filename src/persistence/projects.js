@@ -60,7 +60,7 @@ exports.editTitle = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editTitle() itemID');
     validation.requireOrThrow(newValue, 'editTitle() newValue');
 
-    return handler.update(itemID, "title", newValue, projectsTable);
+    return handler.update("title", itemID, newValue, projectsTable);
 };
 
 /** UPDATE owner
@@ -72,7 +72,7 @@ exports.editOwner = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editOwner() itemID');
     validation.requireOrThrow(newValue, 'editOwner() newValue');
 
-    return handler.update(itemID, "owner", newValue, projectsTable);
+    return handler.update("owner", itemID, newValue, projectsTable);
 };
 
 /** UPDATE description
@@ -84,7 +84,7 @@ exports.editDescription = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editDescription() itemID');
     validation.requireOrThrow(newValue, 'editDescription() newValue');
 
-    return handler.update(itemID, "description", newValue, projectsTable);
+    return handler.update("description", itemID, newValue, projectsTable);
 };
 
 /** UPDATE company
@@ -96,7 +96,7 @@ exports.editCompany = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editCompany() itemID');
     validation.requireOrThrow(newValue, 'editCompany() newValue');
 
-    return handler.update(itemID, "company", newValue, projectsTable);
+    return handler.update("company", itemID, newValue, projectsTable);
 };
 
 /** UPDATE members
@@ -108,7 +108,7 @@ exports.editMembers = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editMembers() itemID');
     validation.requireOrThrow(newValue, 'editMembers() newValue');
 
-    return handler.update(itemID, "members", newValue, projectsTable);
+    return handler.update("members", itemID, newValue, projectsTable);
 };
 
 /** READ equivalent

@@ -18,7 +18,9 @@ function testCreate_throws() {
 
     // issues.createIssue(item);
 
-    console.log(issues.getIssue("title", "Create database"));
+    // console.log(issues.getIssue("title", "Create database"));
+
+    // console.log(issues.editType("feature", "issue"));
 
     // issues.editTitle();
 

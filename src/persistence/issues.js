@@ -63,7 +63,7 @@ exports.editTitle = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editTitle() itemID');
     validation.requireOrThrow(newValue, 'editTitle() newValue');
 
-    return handler.update(itemID, "title", newValue, issuesTable);
+    return handler.update("title", itemID, newValue, issuesTable);
 };
 
 /** UPDATE type
@@ -75,7 +75,7 @@ exports.editType = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editType() itemID');
     validation.requireOrThrow(newValue, 'editType() newValue');
 
-    return handler.update(itemID, "type", newValue, issuesTable);
+    return handler.update("type", itemID, newValue, issuesTable);
 };
 
 /** UPDATE description
@@ -87,7 +87,7 @@ exports.editDescription = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editDescription() itemID');
     validation.requireOrThrow(newValue, 'editDescription() newValue');
 
-    return handler.update(itemID, "description", newValue, issuesTable);
+    return handler.update("description", itemID, newValue, issuesTable);
 };
 
 /** UPDATE assignee
@@ -99,7 +99,7 @@ exports.editAssignee = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editAssignee() itemID');
     validation.requireOrThrow(newValue, 'editAssignee() newValue');
 
-    return handler.update(itemID, "assignee", newValue, issuesTable);
+    return handler.update("assignee", itemID, newValue, issuesTable);
 };
 
 /** UPDATE parent value
@@ -111,7 +111,7 @@ exports.editChildOf = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editChildOf() itemID');
     validation.requireOrThrow(newValue, 'editChildOf() newValue');
 
-    return handler.update(itemID, "childOf", newValue, issuesTable);
+    return handler.update("childOf", itemID, newValue, issuesTable);
 };
 
 /** UPDATE the issue currently blocked by this
@@ -123,7 +123,7 @@ exports.editBlockerOf = function(itemID, newValue) {
     validation.requireOrThrow(itemID, 'editBlockerOf() itemID');
     validation.requireOrThrow(newValue, 'editBlockerOf() newValue');
 
-    return handler.update(itemID, "blockerOf", newValue, issuesTable);
+    return handler.update("blockerOf", itemID, newValue, issuesTable);
 };
 
 /** READ equivalent
