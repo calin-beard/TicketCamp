@@ -56,6 +56,10 @@ exports.createProject = function(item) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editTitle = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editTitle() itemID');
+    validation.requireOrThrow(newValue, 'editTitle() newValue');
+
     return handler.update(itemID, "title", newValue, projectsTable);
 };
 
@@ -64,6 +68,10 @@ exports.editTitle = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editOwner = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editOwner() itemID');
+    validation.requireOrThrow(newValue, 'editOwner() newValue');
+
     return handler.update(itemID, "owner", newValue, projectsTable);
 };
 
@@ -72,6 +80,10 @@ exports.editOwner = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editDescription = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editDescription() itemID');
+    validation.requireOrThrow(newValue, 'editDescription() newValue');
+
     return handler.update(itemID, "description", newValue, projectsTable);
 };
 
@@ -80,6 +92,10 @@ exports.editDescription = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editCompany = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editCompany() itemID');
+    validation.requireOrThrow(newValue, 'editCompany() newValue');
+
     return handler.update(itemID, "company", newValue, projectsTable);
 };
 
@@ -88,19 +104,31 @@ exports.editCompany = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editMembers = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editMembers() itemID');
+    validation.requireOrThrow(newValue, 'editMembers() newValue');
+
     return handler.update(itemID, "members", newValue, projectsTable);
 };
 
 /** READ equivalent
- * @param itemID The id of the object to be retrieved
+ * @param fieldName The field name from the object to be retrieved
+ * @param fieldValue The known field value of fieldName
  */
-exports.getProject = function(itemID) {
-    return handler.get(itemID, projectsTable);
+exports.getProject = function(fieldName, fieldValue) {
+
+    validation.requireOrThrow(fieldName, 'getProject() fieldName');
+    validation.requireOrThrow(fieldValue, 'getProject() fieldValue');
+
+    return handler.get(fieldName, fieldValue, projectsTable);
 };
 
 /** DELETE equivalent
  * @param itemID The id of the object to be removed
  */
 exports.removeProject = function(itemID) {
+
+    validation.requireOrThrow(itemID, 'removeProject() itemID');
+
     return handler.remove(itemID, projectsTable);
 };
