@@ -69,7 +69,8 @@ exports.get = function(fieldName, fieldValue, table) {
             return false;
         }
 
-        const query = { fieldName: fieldValue };
+        const query = {};
+        query[fieldName] = fieldValue;
 
         db.collection(table).find(query).toArray(function(err, result) {
             if (err) throw err;
@@ -87,8 +88,6 @@ exports.get = function(fieldName, fieldValue, table) {
  * @param table The table where to update
  */
 exports.update = function(fieldName, fieldValue, newValue, table) {
-
-    // todo
 
     MongoClient.connect(url, function(err, db) {
         if (err) {
