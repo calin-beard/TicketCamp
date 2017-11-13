@@ -14,18 +14,26 @@ function testCreate_throws() {
     // let y = new issues.IssueItem("myTitle");
     // assert.throws(issues.createIssue(y), Error, "Error thrown");
 
-    let z = new issues.IssueItem("Create database", "feature");
+    let item = new issues.IssueItem("Create database", "feature");
 
-    assert.equal(issues.createIssue(z), true);
-    assert.equal(issues.editDescription(z, "hello"), true);
-    assert.equal(issues.editAssignee(z, "hello"), true);
-    assert.equal(issues.editBlockerOf(z, "hello"), true);
-    assert.equal(issues.editChildOf(z, "hello"), true);
-    assert.equal(issues.editDescription(z, "hello"), true);
-    assert.equal(issues.editTitle(z, "hello"), true);
-    assert.equal(issues.editType(z, "hello"), true);
-    assert.equal(issues.getIssue(z), true);
-    assert.equal(issues.removeIssue(z), true);
+    // issues.createIssue(item);
+
+    console.log(issues.getIssue("title", "Create database"));
+
+    // issues.editTitle();
+
+    // issues.removeIssue();
+
+    // assert.equal(issues.createIssue(z), true);
+    // assert.equal(issues.editDescription(z, "hello"), true);
+    // assert.equal(issues.editAssignee(z, "hello"), true);
+    // assert.equal(issues.editBlockerOf(z, "hello"), true);
+    // assert.equal(issues.editChildOf(z, "hello"), true);
+    // assert.equal(issues.editDescription(z, "hello"), true);
+    // assert.equal(issues.editTitle(z, "hello"), true);
+    // assert.equal(issues.editType(z, "hello"), true);
+    // assert.equal(issues.getIssue(z), true);
+    // assert.equal(issues.removeIssue(z), true);
 }
 
 console.log("Starting 'issue' tests");

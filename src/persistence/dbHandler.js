@@ -48,32 +48,43 @@ const databaseName = ""; //todo set database name
  */
 exports.add = function(item) {
 
-    //todo
-    return true;
-
-    // MongoClient.connect(url, function(err, db) {
-    //     if (err) throw err;
-    //     db.collection(item.getTable()).insertOne(item.getFields(), function(err, result) {
-    //         if (err) throw err;
-    //         console.log("1 document inserted");
-    //         db.close();
-    //     });
-    // });
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            console.log("Could not connect to Mongo");
+            return false;
+        }
+        db.collection(item.getTable()).insertOne(item.getFields(), function(err, result) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        });
+    });
 };
 
 /** READ equivalent
- * @param itemID The object to be retrieved
+ * @param fieldName The field name from the object to be retrieved
+ * @param fieldValue The known field value of fieldName
  * @param table The table where to retrieve from
  */
-exports.get = function(itemID, table) {
+exports.get = function(fieldName, fieldValue, table) {
 
     // todo
-    return true;
 
-    // Database.find({ name: itemID }, function (err, item) {
-    //     if (err) return console.error(err);
-    //     return item;
-    // });
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            console.log("Could not connect to Mongo");
+            return false;
+        }
+
+        const query = { fieldName: fieldValue };
+
+        db.collection(table).findOne(query, function(err, result) {
+            if (err) throw err;
+            console.log("1 document found");
+            db.close();
+            return result;
+        });
+    });
 };
 
 /** UPDATE equivalent

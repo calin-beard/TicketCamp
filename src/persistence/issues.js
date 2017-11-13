@@ -59,6 +59,10 @@ exports.createIssue = function(item) {
  * @param newValue New value
  */
 exports.editTitle = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editTitle() itemID');
+    validation.requireOrThrow(newValue, 'editTitle() newValue');
+
     return handler.update(itemID, "title", newValue, issuesTable);
 };
 
@@ -67,6 +71,10 @@ exports.editTitle = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editType = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editType() itemID');
+    validation.requireOrThrow(newValue, 'editType() newValue');
+
     return handler.update(itemID, "type", newValue, issuesTable);
 };
 
@@ -75,6 +83,10 @@ exports.editType = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editDescription = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editDescription() itemID');
+    validation.requireOrThrow(newValue, 'editDescription() newValue');
+
     return handler.update(itemID, "description", newValue, issuesTable);
 };
 
@@ -83,6 +95,10 @@ exports.editDescription = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editAssignee = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editAssignee() itemID');
+    validation.requireOrThrow(newValue, 'editAssignee() newValue');
+
     return handler.update(itemID, "assignee", newValue, issuesTable);
 };
 
@@ -91,6 +107,10 @@ exports.editAssignee = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editChildOf = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editChildOf() itemID');
+    validation.requireOrThrow(newValue, 'editChildOf() newValue');
+
     return handler.update(itemID, "childOf", newValue, issuesTable);
 };
 
@@ -99,19 +119,31 @@ exports.editChildOf = function(itemID, newValue) {
  * @param itemID The id of the item on which the field shall be updated
  */
 exports.editBlockerOf = function(itemID, newValue) {
+
+    validation.requireOrThrow(itemID, 'editBlockerOf() itemID');
+    validation.requireOrThrow(newValue, 'editBlockerOf() newValue');
+
     return handler.update(itemID, "blockerOf", newValue, issuesTable);
 };
 
 /** READ equivalent
- * @param itemID The id of the object to be retrieved
+ * @param fieldName The field name from the object to be retrieved
+ * @param fieldValue The known field value of fieldName
  */
-exports.getIssue = function(itemID) {
-    return handler.get(itemID, issuesTable);
+exports.getIssue = function(fieldName, fieldValue) {
+
+    validation.requireOrThrow(fieldName, 'getIssue() fieldName');
+    validation.requireOrThrow(fieldValue, 'getIssue() fieldValue');
+
+    return handler.get(fieldName, fieldValue, issuesTable);
 };
 
 /** DELETE equivalent
  * @param itemID The id of the object to be removed
  */
 exports.removeIssue = function(itemID) {
+
+    validation.requireOrThrow(itemID, 'removeIssue() itemID');
+
     return handler.remove(itemID, issuesTable);
 };
