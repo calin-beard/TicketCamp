@@ -24,7 +24,7 @@ function testCreate_throws() {
 
     // issues.editTitle();
 
-    // issues.removeIssue();
+    // issues.removeIssue("type", "feature");
 
     // assert.equal(issues.createIssue(z), true);
     // assert.equal(issues.editDescription(z, "hello"), true);

@@ -124,11 +124,13 @@ exports.getProject = function(fieldName, fieldValue) {
 };
 
 /** DELETE equivalent
- * @param itemID The id of the object to be removed
+ * @param fieldName The field name from the object to be removed
+ * @param fieldValue The known field value of fieldName
  */
-exports.removeProject = function(itemID) {
+exports.removeProject = function(fieldName, fieldValue) {
 
-    validation.requireOrThrow(itemID, 'removeProject() itemID');
+    validation.requireOrThrow(fieldName, 'removeProject() fieldName');
+    validation.requireOrThrow(fieldValue, 'removeProject() fieldValue');
 
-    return handler.remove(itemID, projectsTable);
+    return handler.remove(fieldName, fieldValue, projectsTable);
 };

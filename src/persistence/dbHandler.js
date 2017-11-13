@@ -34,7 +34,6 @@ exports.Item = class {
  * This should be used for interacting with the database
  */
 
-const databaseName = ""; //todo set database name
 
 /** CREATE equivalent
  * @param item The object to be added
@@ -60,8 +59,6 @@ exports.add = function(item) {
  * @param table The table where to retrieve from
  */
 exports.get = function(fieldName, fieldValue, table) {
-
-    // todo
 
     MongoClient.connect(url, function(err, db) {
         if (err) {
@@ -113,11 +110,25 @@ exports.update = function(fieldName, fieldValue, newValue, table) {
 };
 
 /** DELETE equivalent
- * @param itemID The object to be removed
+ * @param fieldName The field name from the object to be removed
+ * @param fieldValue The known field value of fieldName
  * @param table The table where to remove from
  */
-exports.remove = function(itemID, table) {
+exports.remove = function(fieldName, fieldValue, table) {
 
-    // todo
-    return true;
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            console.log("Could not connect to Mongo");
+            return false;
+        }
+
+        const query = {};
+        query[fieldName] = fieldValue;
+
+        db.collection(table).deleteOne(query, function(err, result) {
+            if (err) throw err;
+            console.log("1 document deleted");
+            db.close();
+        });
+    });
 };

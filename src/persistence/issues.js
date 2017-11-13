@@ -139,11 +139,13 @@ exports.getIssue = function(fieldName, fieldValue) {
 };
 
 /** DELETE equivalent
- * @param itemID The id of the object to be removed
+ * @param fieldName The field name from the object to be removed
+ * @param fieldValue The known field value of fieldName
  */
-exports.removeIssue = function(itemID) {
+exports.removeIssue = function(fieldName, fieldValue) {
 
-    validation.requireOrThrow(itemID, 'removeIssue() itemID');
+    validation.requireOrThrow(fieldName, 'removeIssue() fieldName');
+    validation.requireOrThrow(fieldValue, 'removeIssue() fieldValue');
 
-    return handler.remove(itemID, issuesTable);
+    return handler.remove(fieldName, fieldValue, issuesTable);
 };
