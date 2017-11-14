@@ -1,42 +1,42 @@
-import React, {Component} from "react";
-import "./Header.css";
+import React from "react";
+import PropTypes from "prop-types";
+import {withStyles} from "material-ui/styles";
 
-// import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles";
+// Material UI Components
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
-import Typography from "material-ui/Typography";
-import Button from "material-ui/Button";
-import IconButton from "material-ui/IconButton";
-import MenuIcon from "material-ui-icons/Menu";
 
-const Header = () => {
-    // const {classes} = props;
+// Proprietary Components
+import TypographyMaterial from "./TypographyMaterial";
+import IconButtonMaterial from "./IconButtonMaterial";
+import AvatarMaterial from "./AvatarMaterial";
+import ButtonMaterial from "./ButtonMaterial";
+
+
+const styles = theme => ({
+    root: {
+        width: "100%"
+    }
+});
+
+const Header = (props) => {
+    const {classes} = props;
     return (
-        <div>
+        <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton color="contrast" aria-label="Menu">
-                        <MenuIcon/>
-                    </IconButton>
-                    <Typography type="title" color="inherit">
-                        Title
-                    </Typography>
-                    <Button color="contrast">Login</Button>
+                    <IconButtonMaterial/>
+                    <TypographyMaterial text="Title" type="title" color="inherit"/>
+                    <AvatarMaterial alt="Calin" src="/img/Calin.png"/>
+                    <ButtonMaterial color="contrast" text="Login"/>
                 </Toolbar>
             </AppBar>
         </div>
     );
 };
 
-// class Header extends Component {
-//     render() {
-//         return (
-//             <header className="app-header">
-//                 <h1 className="title text-left">Title</h1>
-//             </header>
-//         );
-//     }
-// }
+Header.propTypes = {
+    classes: PropTypes.object.isRequired
+};
 
-export default Header;
+export default withStyles(styles)(Header);
