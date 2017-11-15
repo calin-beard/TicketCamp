@@ -20,11 +20,9 @@ function testCreate_throws() {
 
     // issues.getIssue("title", "Create database");
 
-    // console.log(issues.editType("feature", "issue"));
+    // issues.editType("feature", "issue");
 
-    // issues.editTitle();
-
-    // issues.removeIssue("type", "feature");
+    // issues.removeIssue("type", "issue");
 
     // assert.equal(issues.createIssue(z), true);
     // assert.equal(issues.editDescription(z, "hello"), true);

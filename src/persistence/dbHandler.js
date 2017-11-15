@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Database API containing CRUD operations and more
+ * This should be used for interacting with the database
+ */
+
 let MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost/ticketcamp";
 
@@ -29,25 +34,31 @@ exports.Item = class {
 };
 
 
-/**
- * Database API containing CRUD operations and more
- * This should be used for interacting with the database
+/** Function wrapper that executes database queries within a transaction
+ * @param action Action to be performed after connection (add/get/update/remove)
  */
+function runWithinTransaction(action) {
 
+    MongoClient.connect(url)
+        .then(function (db) {
+            console.log("Connection to Mongo was successful");
+            action(db);
+        })
+        .catch(function (err) {
+            console.log("Could not perform Mongo action: " + err);
+            return false;
+        })
+}
 
 /** CREATE equivalent
  * @param item The object to be added
  */
 exports.add = function(item) {
 
-    MongoClient.connect(url, function(err, db) {
-        if (err) {
-            console.log("Could not connect to Mongo");
-            return false;
-        }
+    runWithinTransaction( (db) => {
         db.collection(item.getTable()).insertOne(item.getFields(), function(err, result) {
             if (err) throw err;
-            console.log("1 document inserted");
+            console.log("Successfully inserted " + result.insertedCount + " items");
             db.close();
         });
     });
@@ -60,18 +71,13 @@ exports.add = function(item) {
  */
 exports.get = function(fieldName, fieldValue, table) {
 
-    MongoClient.connect(url, function(err, db) {
-        if (err) {
-            console.log("Could not connect to Mongo");
-            return false;
-        }
-
+    runWithinTransaction( (db) => {
         const query = {};
         query[fieldName] = fieldValue;
 
         db.collection(table).find(query).toArray(function(err, result) {
             if (err) throw err;
-            console.log("1 document found");
+            console.log(result);
             db.close();
             return result;
         });
@@ -86,12 +92,7 @@ exports.get = function(fieldName, fieldValue, table) {
  */
 exports.update = function(fieldName, fieldValue, newValue, table) {
 
-    MongoClient.connect(url, function(err, db) {
-        if (err) {
-            console.log("Could not connect to Mongo");
-            return false;
-        }
-
+    runWithinTransaction( (db) => {
         const getQuery = {};
         const setQuery = {};
         const innerSetQuery = {};
@@ -102,7 +103,7 @@ exports.update = function(fieldName, fieldValue, newValue, table) {
 
         db.collection(table).updateOne(getQuery, setQuery, function(err, result) {
             if (err) throw err;
-            console.log("1 document updated");
+            console.log("Successfully updated item");
             db.close();
             return result;
         });
@@ -116,18 +117,13 @@ exports.update = function(fieldName, fieldValue, newValue, table) {
  */
 exports.remove = function(fieldName, fieldValue, table) {
 
-    MongoClient.connect(url, function(err, db) {
-        if (err) {
-            console.log("Could not connect to Mongo");
-            return false;
-        }
-
+    runWithinTransaction( (db) => {
         const query = {};
         query[fieldName] = fieldValue;
 
         db.collection(table).deleteOne(query, function(err, result) {
             if (err) throw err;
-            console.log("1 document deleted");
+            console.log("Successfully removed item");
             db.close();
         });
     });

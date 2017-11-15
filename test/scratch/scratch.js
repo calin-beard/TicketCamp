@@ -76,3 +76,8 @@
 //         // whatever
 //     }
 // };
+
+/* Native javascript input sanitizer */
+// let a = "{$gt:25}";
+// console.log(a);
+// console.log(escape(a));
