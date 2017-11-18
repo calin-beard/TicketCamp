@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {Nav, NavItem, NavLink} from "reactstrap";
-import "../components/Sidebar.css";
 
 class Sidebar extends Component {
     render() {
@@ -32,4 +31,4 @@ class Sidebar extends Component {
     }
 }
 
-// export default Sidebar;
+ export default Sidebar;

@@ -1,33 +1,31 @@
 import React, {Component} from "react";
-import {Row, Col} from "reactstrap";
 import {Button, ButtonGroup} from "reactstrap";
-import "./RecentProjects.css";
 
 class RecentProjects extends Component {
     render() {
         return (
             <div className="recent-projects-container">
-                <Row>
-                    <Col>
+                <div>
+                    <div>
                         <h1 className="title">Recently viewed</h1>
-                    </Col>
-                </Row>
-                <Row>
+                    </div>
+                </div>
+                <div>
                     <ButtonGroup>
-                        <Col>
+                        <div>
                             <Button size="lg" color="primary" className="rounded">Recent Project 1</Button>
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <Button size="lg" color="primary" className="rounded">Recent Project 2</Button>
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <Button size="lg" color="primary" className="rounded">Recent Project 3</Button>
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <Button size="lg" color="primary" className="rounded">Recent Project 4</Button>
-                        </Col>
+                        </div>
                     </ButtonGroup>
-                </Row>
+                </div>
             </div>
         );
     }

@@ -12,10 +12,16 @@ import IconButtonMaterial from "./IconButtonMaterial";
 import AvatarMaterial from "./AvatarMaterial";
 import ButtonMaterial from "./ButtonMaterial";
 
+import {drawerWidth} from "../config/variables";
 
 const styles = theme => ({
     root: {
         width: "100%"
+    },
+    appBar: {
+        position: "absolute",
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth
     }
 });
 
@@ -23,7 +29,7 @@ const Header = (props) => {
     const {classes} = props;
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                     <IconButtonMaterial/>
                     <TypographyMaterial text="Title" type="title" color="inherit"/>

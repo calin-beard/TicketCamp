@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Row} from 'reactstrap';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -11,7 +10,7 @@ class Router extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Row noGutters={true}>
+                <div>
                     <Sidebar/>
                     <Switch>
                         <Route path="/issues" component={Issues}></Route>
@@ -19,7 +18,7 @@ class Router extends Component {
                         <Route exact path="/" component={Dashboard}></Route>
                         <Route path="*" component={NotFound}></Route>
                     </Switch>
-                </Row>
+                </div>
             </BrowserRouter>
         );
     }
